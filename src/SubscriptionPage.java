@@ -215,28 +215,28 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == return2WelcomePage)
 		{
-			this.setVisible(false);
 			referenceToWelcomePage.setVisible(true);
+			this.setVisible(false);
 		}
 		else if(e.getSource() == freeB) {
 			referenceToSignUpPage.setSubscriptionModel("free");
-			this.setVisible(false);
 			referenceToSignUpPage.setVisible(true);
+			this.setVisible(false);
 		}
 		else if(e.getSource() == basicB) {
-			referenceToSignUpPage.setSubscriptionModel("basic");
-			this.setVisible(false);
 			referenceToSignUpPage.setVisible(true);
+			this.setVisible(false);
+			referenceToSignUpPage.setSubscriptionModel("basic");
 		}
 		else if(e.getSource() == standartB) {
 			referenceToSignUpPage.setSubscriptionModel("standart");
-			this.setVisible(false);
 			referenceToSignUpPage.setVisible(true);
+			this.setVisible(false);
 		}
 		else if(e.getSource() == premiumB) {
 			referenceToSignUpPage.setSubscriptionModel("premium");
-			this.setVisible(false);
 			referenceToSignUpPage.setVisible(true);
+			this.setVisible(false);
 		}
 	}
 	

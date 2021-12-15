@@ -92,8 +92,8 @@ public class SignInPage extends JFrame implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == return2WelcomePage){
-			this.setVisible(false);
 			referenceToWelcomePage.setVisible(true);
+			this.setVisible(false);
 		}
 		
 		/*

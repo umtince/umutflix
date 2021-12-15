@@ -153,8 +153,8 @@ public class SignUpPage extends JFrame implements ActionListener {
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == return2SubscriptionPage) {
-			this.setVisible(false);
 			referenceToSubscriptionPage.setVisible(true);
+			this.setVisible(false);
 			this.setSubscriptionModel("");
 		}
 		else if(e.getSource() == signUp) {
