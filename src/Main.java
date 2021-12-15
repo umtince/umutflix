@@ -4,15 +4,15 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		/*SignInPage si = new SignInPage();
-		SubscriptionPage sp = new SubscriptionPage();*/
+		SignInPage si = new SignInPage();
 		SignUpPage su = new SignUpPage();
+		SubscriptionPage sp = new SubscriptionPage(su);
 		
-		/*WelcomePage wp = new WelcomePage(si,sp);
+		WelcomePage wp = new WelcomePage(si,sp);
 		
 		si.establishReferenceToWelcomePage(wp);
 		sp.establishReferenceToWelcomePage(wp);
-		su.establishReferenceToSubscriptionPage(sp);*/
+		su.establishReferenceToSubscriptionPage(sp);
 		
 		
 	}

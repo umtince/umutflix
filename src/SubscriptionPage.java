@@ -15,13 +15,16 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 	private JButton return2WelcomePage;
 	
 	private WelcomePage referenceToWelcomePage;
+	private SignUpPage referenceToSignUpPage;
 	
 	private int x = 400;
 	private int y = 450;
 	private int labelFontSize = 35;
 	private int height = 40;
 	
-	public SubscriptionPage() {
+	public SubscriptionPage(SignUpPage su) {
+		
+		this.referenceToSignUpPage = su;
 		Container c = getContentPane();
 		c.setLayout(null);
 		
@@ -203,6 +206,10 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		c.add(backgroundImg);
 		
 		return2WelcomePage.addActionListener(this);
+		freeB.addActionListener(this);
+		basicB.addActionListener(this);
+		standartB.addActionListener(this);
+		premiumB.addActionListener(this);
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -210,6 +217,26 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		{
 			this.setVisible(false);
 			referenceToWelcomePage.setVisible(true);
+		}
+		else if(e.getSource() == freeB) {
+			referenceToSignUpPage.setSubscriptionModel("free");
+			this.setVisible(false);
+			referenceToSignUpPage.setVisible(true);
+		}
+		else if(e.getSource() == basicB) {
+			referenceToSignUpPage.setSubscriptionModel("basic");
+			this.setVisible(false);
+			referenceToSignUpPage.setVisible(true);
+		}
+		else if(e.getSource() == standartB) {
+			referenceToSignUpPage.setSubscriptionModel("standart");
+			this.setVisible(false);
+			referenceToSignUpPage.setVisible(true);
+		}
+		else if(e.getSource() == premiumB) {
+			referenceToSignUpPage.setSubscriptionModel("premium");
+			this.setVisible(false);
+			referenceToSignUpPage.setVisible(true);
 		}
 	}
 	

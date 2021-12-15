@@ -4,15 +4,17 @@ import java.awt.event.*;
 
 public class SignUpPage extends JFrame implements ActionListener {
 	private ImageIcon logoIcon, bgIcon;
-	private JLabel backgroundImg, logoImg, emailLabel, passwordLabel, creditCardNoLabel, creditCardDateLabel, creditCard3DLabel;
+	private JLabel slogan, backgroundImg, logoImg, emailLabel, passwordLabel, creditCardNoLabel, creditCardDateLabel, creditCard3DLabel;
 	private JTextField emailTF, creditCardNoTF, creditCardDateTF, creditCard3DTF;
 	private JPasswordField passwordTF;
 	private JButton signUp, return2SubscriptionPage;
 	
 	private SubscriptionPage referenceToSubscriptionPage;
 	
+	private String subscriptionModel = new String("");
+	
 	private int x = 645;
-	private int y = 300;
+	private int y = 400;
 	private int fontSize = 35;
 	//private WelcomePage referenceToWelcomePage;
 	
@@ -29,6 +31,11 @@ public class SignUpPage extends JFrame implements ActionListener {
 		logoIcon = new ImageIcon("src\\logo.png");
 		logoImg = new JLabel("",logoIcon,JLabel.CENTER);
 		logoImg.setBounds(0, 30, 300, 65);
+		
+		slogan = new JLabel("<html>One last step left to create your account</html>");
+		slogan.setForeground(Color.WHITE);
+		slogan.setFont(new Font(Font.DIALOG, Font.BOLD, fontSize+15));
+		slogan.setBounds(x,y-180,730,150);
 		
 		//Create emailLabel
 		emailLabel = new JLabel("Email:");
@@ -93,7 +100,7 @@ public class SignUpPage extends JFrame implements ActionListener {
 		
 		//Create signUp Button
 		signUp = new JButton("Sign up");
-		signUp.setBounds(x,y+450,630,100);
+		signUp.setBounds(x,y+420,630,100);
 		signUp.setBackground(Color.RED);
 		signUp.setForeground(Color.WHITE);
 		signUp.setBorder(null);
@@ -102,7 +109,7 @@ public class SignUpPage extends JFrame implements ActionListener {
 		
 		//Create return2SubscriptionPage Button
 		return2SubscriptionPage = new JButton("\u2190");
-		return2SubscriptionPage.setBounds(x-10,y-120,80,70);
+		return2SubscriptionPage.setBounds(x-10,y-250,80,70);
 		return2SubscriptionPage.setBackground(Color.BLACK);
 		return2SubscriptionPage.setForeground(Color.WHITE);
 		return2SubscriptionPage.setBorder(null);
@@ -111,11 +118,12 @@ public class SignUpPage extends JFrame implements ActionListener {
 		
 		//Set JFrame properties
 		this.setTitle("Umutflix");
-		this.setVisible(true);
+		this.setVisible(false);
 		this.setSize(1920,1080);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 		//Add components to Container
+		c.add(slogan);
 		c.add(return2SubscriptionPage);
 		c.add(creditCard3DTF);
 		c.add(creditCardNoTF);
@@ -132,17 +140,36 @@ public class SignUpPage extends JFrame implements ActionListener {
 		c.add(backgroundImg);
 		
 		return2SubscriptionPage.addActionListener(this);
+		signUp.addActionListener(this);
+	}
+	
+	public String getSubscriptionModel() {
+		return subscriptionModel;
+	}
+	
+	public void setSubscriptionModel(String subscriptionModel) {
+		this.subscriptionModel = subscriptionModel;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == return2SubscriptionPage) {
 			this.setVisible(false);
 			referenceToSubscriptionPage.setVisible(true);
+			this.setSubscriptionModel("");
+		}
+		else if(e.getSource() == signUp) {
+			/*
+			 * 
+			 * INPUTLARI KONTROL ET
+			 * KENDÝ EXCEPTÝON CLASSINI YAZ VE ÝNPUTLARI KONTROL ET
+			 * INPUTLARI BÝR FONKSÝYON ÝLE KOTNROL ET
+			 * HERÞEY DOÐRUYSA BAÞKA BÝ FONKSYÝONLA DOSYAYA YAZ
+			 * 
+			 * */
 		}
 	}
 	
-	public void establishReferenceToSubscriptionPage(SubscriptionPage sp)
-	{
+	public void establishReferenceToSubscriptionPage(SubscriptionPage sp){
 		this.referenceToSubscriptionPage = sp;
 	}
 }
