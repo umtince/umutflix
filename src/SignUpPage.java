@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import javax.swing.JOptionPane;
 
 public class SignUpPage extends JFrame implements ActionListener {
 	private ImageIcon logoIcon, bgIcon;
@@ -64,7 +65,7 @@ public class SignUpPage extends JFrame implements ActionListener {
 		creditCardDateLabel.setFont(new Font(Font.DIALOG, Font.BOLD, fontSize-15));
 		creditCardDateLabel.setBounds(x,y+210,300,100);
 		
-		creditCard3DLabel = new JLabel("<html>Credit Card Security Number:</html>");
+		creditCard3DLabel = new JLabel("<html>Credit Card Security Number (CVV):</html>");
 		creditCard3DLabel.setForeground(Color.WHITE);
 		creditCard3DLabel.setFont(new Font(Font.DIALOG, Font.BOLD, fontSize-15));
 		creditCard3DLabel.setBounds(x,y+290,250,100);
@@ -156,16 +157,64 @@ public class SignUpPage extends JFrame implements ActionListener {
 			referenceToSubscriptionPage.setVisible(true);
 			this.setVisible(false);
 			this.setSubscriptionModel("");
+			emailTF.setText("");
+			passwordTF.setText("");
+			creditCardNoTF.setText("");
+			creditCardDateTF.setText("");
+			creditCard3DTF.setText("");
 		}
 		else if(e.getSource() == signUp) {
-			/*
-			 * 
-			 * INPUTLARI KONTROL ET
-			 * KENDÝ EXCEPTÝON CLASSINI YAZ VE ÝNPUTLARI KONTROL ET
-			 * INPUTLARI BÝR FONKSÝYON ÝLE KOTNROL ET
-			 * HERÞEY DOÐRUYSA BAÞKA BÝ FONKSYÝONLA DOSYAYA YAZ
-			 * 
-			 * */
+			User user = new User();
+			
+			try {
+				user.setSubscriptionModel(subscriptionModel);
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			try {
+				user.setEmail(emailTF.getText());
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			try {
+				user.setPassword(new String(passwordTF.getPassword()));
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			try {
+				user.setCreditCardNumber(creditCardNoTF.getText());
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			try {
+				user.setCreditCardDate(creditCardDateTF.getText());
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			try {
+				user.setCreditCard3D(creditCard3DTF.getText());
+			}
+			catch(Exception exception) {
+				JOptionPane.showMessageDialog(null, exception.getMessage());
+			}
+			
+			if(user.isNotNull()) {
+				/*
+				 * DB ÝÞLEMLERÝ BURADA YAPILACAK
+				 * */
+			}
+			
+			
 		}
 	}
 	
