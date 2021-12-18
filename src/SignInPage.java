@@ -10,8 +10,11 @@ public class SignInPage extends JFrame implements ActionListener{
 	private JButton signIn, return2WelcomePage;
 	
 	private WelcomePage referenceToWelcomePage;
+	private UserPanel referenceToUserPanel;
 	
 	public SignInPage() {
+		
+		
 		Container c = getContentPane();
 		c.setLayout(null);
 	
@@ -84,10 +87,15 @@ public class SignInPage extends JFrame implements ActionListener{
 		c.add(backgroundImg);
 		
 		return2WelcomePage.addActionListener(this);
+		signIn.addActionListener(this);
 	}
 	
 	public void establishReferenceToWelcomePage(WelcomePage w) {
 		this.referenceToWelcomePage = w;
+	}
+	
+	public void establishReferenceToUserPanel(UserPanel up) {
+		this.referenceToUserPanel = up;
 	}
 	
 	public void actionPerformed(ActionEvent e) {
@@ -95,10 +103,18 @@ public class SignInPage extends JFrame implements ActionListener{
 			referenceToWelcomePage.setVisible(true);
 			this.setVisible(false);
 		}
-		
-		/*
+		else if(e.getSource() == signIn)
+		{
+			referenceToUserPanel.setVisible(true);
+			
+			//ALTTAKÝ SATIR YERÝNE DB.TXT'DEN GELENLER OKUNACAK
+			
+			referenceToUserPanel.qualitySelector("free");
+			/*
 		 * SIGN IN BUTTONU ÝÇÝN ACTION LÝSTENER EKLENECEK!!
 		 * */
+		}
+		
 	}
 	
 }

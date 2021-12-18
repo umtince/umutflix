@@ -8,10 +8,10 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 	private JLabel logoImg, backgroundImg, slogan;
 	private JLabel monthlyPriceL, videoQualityL,resolutionL;
 	private JLabel monthlyPriceBasicL, videoQualityBasicL,resolutionBasicL;
-	private JLabel monthlyPriceStandartL, videoQualityStandartL,resolutionStandartL;
+	private JLabel monthlyPriceStandardL, videoQualityStandardL,resolutionStandardL;
 	private JLabel monthlyPricePremiumL, videoQualityPremiumL,resolutionPremiumL;
 	private JLabel monthlyPriceFreeL, videoQualityFreeL,resolutionFreeL;
-	private JButton freeB, basicB, standartB, premiumB;
+	private JButton freeB, basicB, standardB, premiumB;
 	private JButton return2WelcomePage;
 	
 	private WelcomePage referenceToWelcomePage;
@@ -54,10 +54,10 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		monthlyPriceBasicL.setForeground(Color.WHITE);
 		monthlyPriceBasicL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
-		monthlyPriceStandartL = new JLabel("40.99 TL");
-		monthlyPriceStandartL.setBounds(x+800, y, 200, height);
-		monthlyPriceStandartL.setForeground(Color.WHITE);
-		monthlyPriceStandartL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
+		monthlyPriceStandardL = new JLabel("40.99 TL");
+		monthlyPriceStandardL.setBounds(x+800, y, 200, height);
+		monthlyPriceStandardL.setForeground(Color.WHITE);
+		monthlyPriceStandardL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
 		monthlyPricePremiumL = new JLabel("54.99 TL");
 		monthlyPricePremiumL.setBounds(x+1000, y, 200, height);
@@ -83,10 +83,10 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		videoQualityBasicL.setForeground(Color.WHITE);
 		videoQualityBasicL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
-		videoQualityStandartL = new JLabel("Better");
-		videoQualityStandartL.setBounds(x+800, y+80, 1000, height);
-		videoQualityStandartL.setForeground(Color.WHITE);
-		videoQualityStandartL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
+		videoQualityStandardL = new JLabel("Better");
+		videoQualityStandardL.setBounds(x+800, y+80, 1000, height);
+		videoQualityStandardL.setForeground(Color.WHITE);
+		videoQualityStandardL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
 		videoQualityPremiumL = new JLabel("Best");
 		videoQualityPremiumL.setBounds(x+1000, y+80, 1000, height);
@@ -111,10 +111,10 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		resolutionBasicL.setForeground(Color.WHITE);
 		resolutionBasicL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
-		resolutionStandartL = new JLabel("1080p");
-		resolutionStandartL.setBounds(x+800, y+160, 1000, height);
-		resolutionStandartL.setForeground(Color.WHITE);
-		resolutionStandartL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
+		resolutionStandardL = new JLabel("1080p");
+		resolutionStandardL.setBounds(x+800, y+160, 1000, height);
+		resolutionStandardL.setForeground(Color.WHITE);
+		resolutionStandardL.setFont(new Font(Font.DIALOG, Font.BOLD, labelFontSize));
 		
 		resolutionPremiumL = new JLabel("4K+HDR");
 		resolutionPremiumL.setBounds(x+1000, y+160, 1000, height);
@@ -139,13 +139,13 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		basicB.setFocusPainted(false);
 		basicB.setFont(new Font(Font.DIALOG, Font.BOLD, 25));
 		
-		standartB = new JButton("Standart");
-		standartB.setBounds(x+800,y+250,150,75);
-		standartB.setBackground(Color.RED);
-		standartB.setForeground(Color.WHITE);
-		standartB.setBorder(null);
-		standartB.setFocusPainted(false);
-		standartB.setFont(new Font(Font.DIALOG, Font.BOLD, 25));
+		standardB = new JButton("Standard");
+		standardB.setBounds(x+800,y+250,150,75);
+		standardB.setBackground(Color.RED);
+		standardB.setForeground(Color.WHITE);
+		standardB.setBorder(null);
+		standardB.setFocusPainted(false);
+		standardB.setFont(new Font(Font.DIALOG, Font.BOLD, 25));
 		
 		premiumB = new JButton("Premium");
 		premiumB.setBounds(x+1000,y+250,150,75);
@@ -179,25 +179,25 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		
 		c.add(freeB);
 		c.add(basicB);
-		c.add(standartB);
+		c.add(standardB);
 		c.add(premiumB);
 		
 		c.add(resolutionL);
 		c.add(resolutionFreeL);
 		c.add(resolutionBasicL);
-		c.add(resolutionStandartL);
+		c.add(resolutionStandardL);
 		c.add(resolutionPremiumL);
 		
 		c.add(monthlyPriceL);
 		c.add(monthlyPriceFreeL);
 		c.add(monthlyPriceBasicL);
-		c.add(monthlyPriceStandartL);
+		c.add(monthlyPriceStandardL);
 		c.add(monthlyPricePremiumL);
 		
 		c.add(videoQualityL);
 		c.add(videoQualityFreeL);
 		c.add(videoQualityBasicL);
-		c.add(videoQualityStandartL);
+		c.add(videoQualityStandardL);
 		c.add(videoQualityPremiumL);
 		
 		c.add(resolutionL);
@@ -208,7 +208,7 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 		return2WelcomePage.addActionListener(this);
 		freeB.addActionListener(this);
 		basicB.addActionListener(this);
-		standartB.addActionListener(this);
+		standardB.addActionListener(this);
 		premiumB.addActionListener(this);
 	}
 	
@@ -228,8 +228,8 @@ public class SubscriptionPage extends JFrame implements ActionListener {
 			this.setVisible(false);
 			referenceToSignUpPage.setSubscriptionModel("basic");
 		}
-		else if(e.getSource() == standartB) {
-			referenceToSignUpPage.setSubscriptionModel("standart");
+		else if(e.getSource() == standardB) {
+			referenceToSignUpPage.setSubscriptionModel("standard");
 			referenceToSignUpPage.setVisible(true);
 			this.setVisible(false);
 		}

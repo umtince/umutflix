@@ -2,6 +2,15 @@
 public class User {
 	private String email,password,creditCardNumber,creditCardDate,creditCard3D, subscriptionModel;
 
+	public User() {
+		
+	}
+	
+	public User(String adminEmail, String adminPassword) {
+		this.email = adminEmail;
+		this.password = adminPassword;
+	}
+	
 	public String getSubscriptionModel() {
 		return subscriptionModel;
 	}

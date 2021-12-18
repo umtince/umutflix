@@ -12,6 +12,7 @@ public class SignUpPage extends JFrame implements ActionListener {
 	private JButton signUp, return2SubscriptionPage;
 	
 	private SubscriptionPage referenceToSubscriptionPage;
+	private WelcomePage referenceToWelcomePage;
 	
 	private String subscriptionModel = new String("");
 	
@@ -209,22 +210,33 @@ public class SignUpPage extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, exception.getMessage());
 			}
 			
+			
 			if(user.isNotNull()) {
-				/*
-				 * DB ÝÞLEMLERÝ BURADA YAPILACAK
-				 * */
+				
 				FileWriter fw = null;
 				try {
 					fw = new FileWriter("db.txt",true);
 					fw.write(user.getUserData()+"\n");
 					fw.close();
+					JOptionPane.showMessageDialog(null,"Sign up successful. You may sign in to your account.");
 				}
 				catch(Exception exception) {
 					System.out.println(exception.getMessage());
 				}
+			
 				
-				
+				referenceToWelcomePage.setVisible(true);
+				this.setVisible(false);
+				this.setSubscriptionModel("");
+				emailTF.setText("");
+				passwordTF.setText("");
+				creditCardNoTF.setText("");
+				creditCardDateTF.setText("");
+				creditCard3DTF.setText("");
 			}
+			
+			
+			
 			
 			
 		}
@@ -232,5 +244,9 @@ public class SignUpPage extends JFrame implements ActionListener {
 	
 	public void establishReferenceToSubscriptionPage(SubscriptionPage sp){
 		this.referenceToSubscriptionPage = sp;
+	}
+	
+	public void establishReferenceToWelcomePage(WelcomePage wp){
+		this.referenceToWelcomePage = wp;
 	}
 }
