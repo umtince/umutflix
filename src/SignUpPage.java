@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JOptionPane;
+import java.io.FileWriter;
 
 public class SignUpPage extends JFrame implements ActionListener {
 	private ImageIcon logoIcon, bgIcon;
@@ -212,6 +213,17 @@ public class SignUpPage extends JFrame implements ActionListener {
 				/*
 				 * DB ÝÞLEMLERÝ BURADA YAPILACAK
 				 * */
+				FileWriter fw = null;
+				try {
+					fw = new FileWriter("db.txt",true);
+					fw.write(user.getUserData()+"\n");
+					fw.close();
+				}
+				catch(Exception exception) {
+					System.out.println(exception.getMessage());
+				}
+				
+				
 			}
 			
 			
