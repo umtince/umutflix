@@ -6,7 +6,7 @@ public class Main {
 		User admin = new User("admin","123456");
 		
 		UserPanel up = new UserPanel();
-		SignInPage si = new SignInPage();
+		SignInPage si = new SignInPage(admin);
 		SignUpPage su = new SignUpPage();
 		SubscriptionPage sp = new SubscriptionPage(su);
 		

@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.util.Scanner;
 
 public class SignInPage extends JFrame implements ActionListener{
 	private ImageIcon logoIcon, bgIcon;
@@ -8,12 +10,13 @@ public class SignInPage extends JFrame implements ActionListener{
 	private JTextField emailTF;
 	private JPasswordField passwordTF;
 	private JButton signIn, return2WelcomePage;
-	
+	private User adminCreds;
 	private WelcomePage referenceToWelcomePage;
 	private UserPanel referenceToUserPanel;
-	
-	public SignInPage() {
-		
+	private String[] a = {"free","basic","standard","premium"};
+	private int b = 0;
+	public SignInPage(User admin) {
+		this.adminCreds = admin;
 		
 		Container c = getContentPane();
 		c.setLayout(null);
@@ -105,18 +108,54 @@ public class SignInPage extends JFrame implements ActionListener{
 		}
 		else if(e.getSource() == signIn)
 		{
-			referenceToUserPanel.setVisible(true);
+			String subscriptionModel;
+			if(emailTF.getText().equals(adminCreds.getEmail()) && (String.valueOf(passwordTF.getPassword())).equals(adminCreds.getPassword())) //admin access
+			{
+				System.out.println("ADMÝN");
+				clearTextFields();
+			}
+			else if(!(subscriptionModel = findInDB(emailTF.getText(), String.valueOf(passwordTF.getPassword()))).equals("")) {
+				
+				referenceToUserPanel.qualitySelector(subscriptionModel);
+				referenceToUserPanel.setVisible(true);
+				clearTextFields();
+
+			}
 			
-			//ALTTAKÝ SATIR YERÝNE DB.TXT'DEN GELENLER OKUNACAK
-			
-			referenceToUserPanel.qualitySelector("free");
-			/*
-		 * SIGN IN BUTTONU ÝÇÝN ACTION LÝSTENER EKLENECEK!!
-		 * */
 		}
 		
 	}
 	
+	private void clearTextFields() {
+		emailTF.setText("");
+		passwordTF.setText("");
+	}
+	
+	private String findInDB(String email, String password) {
+		String[] arr = {"","","","","",""};
+		
+		try {
+			File file = new File("db.txt");
+			Scanner scanner = new Scanner(file);
+			
+			while(scanner.hasNextLine())
+			{
+				String data = scanner.nextLine();
+				
+				arr = data.split(" ",6);
+				
+				if(arr[0].equals(email) && arr[1].equals(password))
+				{
+					scanner.close();
+					return arr[5];
+				}
+			}
+			scanner.close();
+		}catch(Exception exc) {
+			System.out.println(exc.getMessage());
+		}
+		return "";
+	}
 }
 
 

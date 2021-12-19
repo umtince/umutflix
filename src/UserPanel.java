@@ -95,7 +95,7 @@ public class UserPanel extends JFrame implements ActionListener{
 		
 		
 		this.setTitle("Umutflix");
-		this.setVisible(false); //daha sonra kapat
+		this.setVisible(false);
 		this.setSize(1920,1080);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -134,41 +134,6 @@ public class UserPanel extends JFrame implements ActionListener{
 		
 	}
 	
-	/*public UserPanel(int qualitySelector)
-	{
-		this();
-		if(qualitySelector == 0) {
-			c.add(movie1);
-			c.add(movie2);
-			c.add(movie3);
-			c.add(movie4);
-			
-			c.add(bmovie1);
-			c.add(bmovie2);
-			c.add(bmovie3);
-			c.add(bmovie4);
-		}
-		else if(qualitySelector == 1 || qualitySelector == 2 || qualitySelector == 3) {
-			c.add(movie1);
-			c.add(movie2);
-			c.add(movie3);
-			c.add(movie4);
-			c.add(movie5);
-			c.add(movie6);
-			c.add(movie7);
-			c.add(movie8);
-			
-			c.add(bmovie1);
-			c.add(bmovie2);
-			c.add(bmovie3);
-			c.add(bmovie4);
-			c.add(bmovie5);
-			c.add(bmovie6);
-			c.add(bmovie7);
-			c.add(bmovie8);
-		}
-		
-	}*/
 	
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == bmovie1) {
@@ -243,17 +208,32 @@ public class UserPanel extends JFrame implements ActionListener{
 	
 	private void changeUserPanelComponents(int qualitySelector) {
 		if(qualitySelector == 0) {
-			c.remove(movie8);
-			c.remove(bmovie8);
+			movie8.setVisible(false);
+			bmovie8.setVisible(false);
 			
-			c.remove(movie7);
-			c.remove(bmovie7);
+			movie7.setVisible(false);
+			bmovie7.setVisible(false);
+
+			movie6.setVisible(false);
+			bmovie6.setVisible(false);
 			
-			c.remove(movie6);
-			c.remove(bmovie6);
+			movie5.setVisible(false);
+			bmovie5.setVisible(false);
+		}
+		else if(qualitySelector >=1 && qualitySelector <=3)
+		{
 			
-			c.remove(movie5);
-			c.remove(bmovie5);
+			movie8.setVisible(true);
+			bmovie8.setVisible(true);
+			
+			movie7.setVisible(true);
+			bmovie7.setVisible(true);
+
+			movie6.setVisible(true);
+			bmovie6.setVisible(true);
+			
+			movie5.setVisible(true);
+			bmovie5.setVisible(true);
 		}
 	}
 }
